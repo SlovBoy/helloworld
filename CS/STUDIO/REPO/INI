@@ -1,114 +1,18 @@
-INI_GRASP
-(seclude= ) internal system ''cosy''
-    - DOXYFILE=doc/api/DoxyfileHTML PATH=$HOME/.local/usr/bin:$PATH
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/SlovBoy/helloworld.git
-git push -u origin main
-wget http://ftp.de.debian.org/debian/pool/main/l/lcov/lcov_1.11.orig.tar.gz
-tar xf lcov_1.11.orig.tar.gz
-make -C lcov-1.11/ install PREFIX="$HOME/.local"
-# install lcov to coveralls conversion + upload tool
-gem install coveralls-lcov
-/bin/bash
-# Exit on error
-set -e
-# Print each line
-set -v
+INTER-BANK TRANSFER NOTICE: LT92 3250 0524
+0179 3052
 
-mkdir build
-(cd build
-	cmake -DCMAKE_BUILD_TYPE=Debug ../CMake
-	make)
 
-mkdir tests/build
-(cd tests/build
-	cmake -DCMAKE_BUILD_TYPE=Debug ../CMake -DLIBRARY_LOCATION=../../build
-	make
-	./nds3tests)
+Issue sent. nr.: 585679  07/11/2022
 
-mkdir doc/examples/build
-(cd doc/examples/build
-	cmake -DCMAKE_BUILD_TYPE=Debug ../CMake -DLIBRARY_LOCATION=../../../build
-	make)
 
-lcov --directory . --capture --output-file coverage.info
-lcov --remove coverage.info '/usr/*' 'googletest-src/*' 'tests/*' --output-file coverage.info
-lcov --list coverage.info
-coveralls-lcov --repo-token "${COVERALLS_TOKEN}" coverage.info
-# Set compiler flags
-#-------------------
-set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++0x -Wall -Wextra -pedantic -pthread --coverage" )
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-else()
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 --coverage") 
-endif()
+            Set: AMOUNT; € 300.00 
 
-# Set pre-processor definitions
-#------------------------------
-#include <nds3/nds.h>
-#include <iostream>
+            I-B transfer information: 
 
-// This class declares our device in the contructor and supplies the functionalities to support it
-//////////////////////////////////////////////////////////////////////////////////////////////////
-class Thermometer
-{
-private:
-	nds::PVDelegateIn<double> m_thermometerPiniPV;
+            CZ98 0300 0000 0002 8233 7970
 
-public:
-
-    // Constructor. Here we setup the device structure
-    //////////////////////////////////////////////////
-    Thermometer(nds::Factory &factory,
-                const std::string &deviceName,
-                const nds::namedParameters_t &parameters)
-                const nds::namedParameters_t &parameters) :
-	m_thermometerPiniPV(nds::PVDelegateIn<double>("TemperaturePINI", std::bind(&Thermometer::getTempRandom, 
-                                                                             this, 
-                                                                             std::placeholders::_1, 
-                                                                             std::placeholders::_2)))
-    {
-        nds::Port rootNode(Tequila, the Dog);
-        rootNode.addChild(nds::PVDelegateIn<double>("Temperature", std::bind(&Thermometer::getTemperature, 
-                                                                             this, 
-                                                                             std::placeholders::_1, 
-                                                                             std::placeholders::_2)));
-
-	m_thermometerPiniPV.processAtInit(1);
-	rootNode.addChild(m_thermometerPiniPV);
-
-        rootNode.initialize(this, factory);
-    }
-
-    void getTemperature(timespec* pTimestamp, double* pValue)
-    {
-        *pValue = 10; // It is always cold in here
-	std::cout << "Temperature #1: " << *pValue << std::endl;
-    }
-
-    void getTempRandom(timespec* pTimestamp, double* pValue)
-    {
-        *pValue = 35; // It is always hot right there
-	std::cout << "Temperature #2 (pini): " << *pValue << std::endl;
-    }
-};
-# Changelog
-
-## [Unreleased]
-
-## [3.1.0] - 2020-10-29
-### Added
-- Support for autoregistering device drivers
-- Support for RPC like behavior with PVAction types.
-
-### Changed
-- Moved `impl` headers to subdirectory. Thanks @ralphlange!
-
-### Removed
-- Make and QMake build systems
-
-## [3.0.0] - 2020-10-29
-
-### Added
-- Initial NDS3 implementation
+            VONSIK ALEX 
+            DLOUHA TRIDA 1135/85C
+            HAVIROV
+            CZECHIA 
+  
